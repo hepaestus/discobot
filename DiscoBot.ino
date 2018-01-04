@@ -22,12 +22,12 @@ Adafruit_DCMotor *R_MOTOR = AFMS.getMotor(2);
 
 #define AIO_SERVER     "io.adafruit.com"
 #define AIO_SERVERPORT 1883 
-#define AIO_USERNAME   "xxxxx"
-#define AIO_KEY        "xxxxx"
+#define AIO_USERNAME   "hepaestus"
+#define AIO_KEY        "b89ac2c549a34ae6b00ddfbc8464b3d1"
 
 // WiFi parameters
-const char* ssid = "xxxxx";
-const char* password = "xxxxx";
+const char* ssid = "hepaestus";
+const char* password = "h3p435tu5!";
 
 // Setup the MQTT client class by passing in the WiFi client and MQTT server and login details.
 Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO_KEY);
@@ -107,15 +107,15 @@ void loop() {
   }
 
   // Now we can publish stuff!
-  delay(1000);
-  Serial.print(F("\nSending connection data "));
+  //delay(1000);
+  //Serial.print(F("\nSending connection data "));
   //Serial.print();
-  Serial.print("...");
-  if (! conn.publish(0)) {
-    Serial.println(F("Failed"));
-  } else {
-    Serial.println(F("OK!"));
-  }
+  //Serial.print("...");
+  //if (! conn.publish(0)) {
+  //  Serial.println(F("Failed"));
+  //} else {
+  //  Serial.println(F("OK!"));
+  //}
   Serial.println("--- End Loop ---");
 }
 
@@ -123,7 +123,7 @@ void r_stop() {
   
   // Stop
   Serial.println(" --- Stop --- ");
-  conn.publish("stop");
+  //conn.publish("stop");
   L_MOTOR->setSpeed(0);
   L_MOTOR->run( RELEASE );
  
@@ -136,7 +136,7 @@ void r_forward() {
   
   // Stop
   Serial.println(" --- Forward --- ");
-  conn.publish("forward");
+  //conn.publish("forward");
   L_MOTOR->setSpeed(100);
   L_MOTOR->run( FORWARD );
  
@@ -148,7 +148,7 @@ void r_forward() {
 void r_left() {
   
   Serial.println(" --- Left --- ");
-  conn.publish("left");
+  //conn.publish("left");
   L_MOTOR->setSpeed(50);
   L_MOTOR->run( BACKWARD );
  
@@ -161,7 +161,7 @@ void r_right() {
   
   // Stop
   Serial.println(" --- Right --- ");
-  conn.publish("right");
+  //conn.publish("right");
   L_MOTOR->setSpeed(50);
   L_MOTOR->run( FORWARD );
  
@@ -173,7 +173,7 @@ void r_right() {
 void r_backward() {
   
   // Stop
-  conn.publish("backward");
+  //conn.publish("backward");
   L_MOTOR->setSpeed(75);
   L_MOTOR->run( BACKWARD );
  
